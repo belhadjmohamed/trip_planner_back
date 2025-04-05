@@ -50,14 +50,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-
 # ========================
 # FRONTEND INTEGRATION
 # ========================
 CORS_ALLOWED_ORIGINS = [
-    "https://trip-planner-front-five.vercel.app", 
+    "https://trip-planner-front-11.vercel.app", 
     "http://localhost:3000",
 ]
 
