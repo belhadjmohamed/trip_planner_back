@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements.txt --upgrade
 
 # Run migrations
 python manage.py migrate
