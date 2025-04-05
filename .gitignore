@@ -1,0 +1,67 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+ENV/
+env/
+*.env
+
+# Django migration files
+*/migrations/*
+
+# Django database files
+db.sqlite3
+
+# Django static and media files (if they are generated at runtime)
+static/
+media/
+
+# Log files
+*.log
+
+# Environment variable file
+.env
+
+# VSCode, PyCharm, and other IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Coverage reports (if you run tests)
+.coverage
+*.cover
+
+# Test directories
+tests/
+
+# Distribution / packaging
+*.egg
+*.egg-info
+dist/
+build/
+
+
+
+# Project-specific settings or secret key files
+*.secret
+*.key
+*.pem
+
+# OS-specific files
+.DS_Store   # macOS
+Thumbs.db   # Windows
+
+# Sentry configuration file (if used for error tracking)
+.sentry
+
+# PyCharm project files
+*.iml
+.idea/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Python packaging
+pip-wheel-metadata/

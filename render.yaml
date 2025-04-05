@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: trip-planner-api
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn trip_planner_api.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: your-secret-key
+      - key: DJANGO_SETTINGS_MODULE
+        value: trip_planner_api.settings
+      - fromDatabase:
+          name: trip-db
+          property: connectionString
+        key: DATABASE_URL
+
+databases:
+  - name: trip-db
