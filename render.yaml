@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: trip-planner-api
+    name: trip_planner_api
     env: python
     buildCommand: "./build.sh"
     startCommand: "gunicorn trip_planner_api.wsgi:application"
