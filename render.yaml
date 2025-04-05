@@ -10,7 +10,7 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: trip_planner_api.settings
       - fromDatabase:
-          name: trip-db
+          name: trip_planner_mr6k
           property: connectionString
         key: DATABASE_URL
 
