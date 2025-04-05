@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install dependencies
-pip install -r requirements.txt --upgrade
+pip install --only-binary :all: backports.zoneinfo psycopg2-binary -r requirements.txt
 
 # Run migrations
 python manage.py migrate
