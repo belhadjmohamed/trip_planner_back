@@ -55,7 +55,7 @@ MIDDLEWARE = [
 # ========================
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://trip-planner-front-five.vercel.app/", 
+    "https://trip-planner-front-five.vercel.app", 
 ]
 
 CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy()
