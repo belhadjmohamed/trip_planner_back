@@ -15,11 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from django.http import HttpResponseForbidden
-from django.views.generic.base import RedirectView
+from django.http import JsonResponse
 
 urlpatterns = [
-     path('', RedirectView.as_view(url='/api/')), 
+    path('', lambda r: JsonResponse({"status": "API Healthy"})),
     path('admin/', admin.site.urls),
     path('api/', include('trips.urls')),
 ]
