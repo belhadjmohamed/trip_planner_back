@@ -34,6 +34,12 @@ python manage.py migrate --noinput --verbosity 3
 echo "Migration status after:"
 python manage.py showmigrations
 
+
+
+echo "===== Applying trips migrations ====="
+python manage.py makemigrations trips
+python manage.py migrate trips --noinput
+
 # 5. Final verification
 echo "Checking if trips_trip exists..."
 python manage.py shell -c "
@@ -42,5 +48,6 @@ with connection.cursor() as cursor:
     cursor.execute(\"SELECT to_regclass('trips_trip')\")
     print('trips_trip exists?', cursor.fetchone()[0])
 "
+
 
 echo "===== BUILD FINISHED ====="
