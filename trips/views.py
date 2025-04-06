@@ -48,11 +48,8 @@ class TripView(APIView):
                 return Response({"error": "Trip not found"}, status=status.HTTP_404_NOT_FOUND)
         else:
             trips = Trip.objects.all()
-            if trips.exists():  
-                serializer = TripSerializer(trips, many=True)
-                return Response(serializer.data)
-            else:
-                return Response([], status=status.HTTP_200_OK) 
+            serializer = TripSerializer(trips, many=True)
+            return Response(serializer.data)
 
     def post(self, request):
         serializer = TripSerializer(data=request.data)
