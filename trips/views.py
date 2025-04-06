@@ -10,7 +10,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 class LocationSearchView(APIView):
-
+    authentication_classes = []  
+    permission_classes = []
     def geocode_with_retry(self, geolocator, query, retries=3, delay=1):
         for attempt in range(retries):
             try:
@@ -40,6 +41,8 @@ class LocationSearchView(APIView):
         return Response(results)
 
 class TripView(APIView):
+    authentication_classes = []  
+    permission_classes = []
     def get(self, request, id=None):
         try:
             if id:
