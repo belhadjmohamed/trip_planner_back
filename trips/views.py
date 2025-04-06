@@ -6,7 +6,9 @@ from .models import Trip
 from .serializers import TripSerializer
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+import logging
 
+logger = logging.getLogger(__name__)
 class LocationSearchView(APIView):
 
     def geocode_with_retry(self, geolocator, query, retries=3, delay=1):
@@ -39,17 +41,21 @@ class LocationSearchView(APIView):
 
 class TripView(APIView):
     def get(self, request, id=None):
-        if id:
-            try:
+        try:
+            if id:
                 trip = Trip.objects.get(id=id)
                 serializer = TripSerializer(trip)
                 return Response(serializer.data)
-            except Trip.DoesNotExist:
-                return Response({"error": "Trip not found"}, status=status.HTTP_404_NOT_FOUND)
-        else:
-            trips = Trip.objects.all()
-            serializer = TripSerializer(trips, many=True)
-            return Response(serializer.data)
+            else:
+                trips = Trip.objects.all()
+                serializer = TripSerializer(trips, many=True)
+                return Response(serializer.data)
+        except Exception as e:
+            logger.exception("Error in TripView")
+            return Response(
+                {"error": str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
 
     def post(self, request):
         serializer = TripSerializer(data=request.data)
